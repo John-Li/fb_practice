@@ -1,0 +1,48 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div {
+  text-align: center;
+  margin: 20px 0;
+}
+.credit_card {
+  width: 350px;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  
+  input {
+    width: 300px;
+    height: 25px;
+    font-size: 12pt;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    
+    &#credit_card_number {
+      text-align: center;
+      border: 1px solid black;
+      margin: 50px 0;
+    }
+    
+    &#button {
+      height: 35px;
+      font-size: 14pt;
+      font-weight: bold;
+      color: #FFF;
+      border: 1px solid #f3f3f3;
+      background-color: #0076ae;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.bypass {
+  a {
+    text-decoration: none;
+    color: #0076ae;
+  }
+} 
