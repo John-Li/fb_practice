@@ -1,0 +1,21 @@
+%h1 Promotions
+%table.sample
+  %tr
+    %th Id
+    %th Title
+    %th Desc
+    %th Start time
+    %th End time
+  - @promotions.each do |promotion|
+    %tr
+      %td
+        = promotion.id
+      %td 
+        = link_to promotion.title, promotion_path(promotion)
+      %td 
+        = promotion.desc
+      %td 
+        = promotion.start_time
+      %td 
+        = promotion.end_time
+  = link_to "Create new", new_promotion_path

@@ -2,9 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div {
+.promotion_header {
+  margin: 0;
+  .header_shadow {
+    background-color: black;
+    box-shadow: 0 10px 15px 0;
+    height: 40px;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+  }
+  .bottom_shadow {
+    background-color: transparent;
+    box-shadow: 0 -8px 7px 0;
+    display: -moz-box;
+    height: 4px;
+    position: absolute;
+    top: 301px;
+    width: 100%;
+    z-index: 5;
+  }
+  h1 {
+    font-size: 52px;
+    left: 27%;
+    opacity: 0.75;
+    position: absolute;
+    top: 40px;
+    width: 570px;
+    z-index: 5;
+  }
+  h3 {
+    left: 48%;
+    position: absolute;
+    z-index: 6;
+    margin: 10px 0;
+    color: white;
+  }
+}
+.promotion_conditions, .how_works, .credit_card, .bypass{
   text-align: center;
-  margin: 20px 0;
 }
 .credit_card {
   width: 350px;
@@ -45,4 +82,27 @@ div {
     text-decoration: none;
     color: #0076ae;
   }
-} 
+}
+#home-carousel{
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    width: 100%;
+    }
+    #pager {
+      left: 48%;
+      opacity: 0.75;
+      position: absolute;
+      top: 270px;
+      z-index: 5;
+      a {
+        padding: 0 4px;
+      }
+    }
+  } 

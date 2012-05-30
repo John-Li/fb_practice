@@ -11,6 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120530095634) do
+
+  create_table "images", :force => true do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.integer  "file_size"
+    t.string   "file"
+    t.integer  "promotion_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "promotions", :force => true do |t|
+    t.string "company_name"
+    t.string "title"
+    t.text   "desc"
+    t.time   "start_time"
+    t.time   "end_time"
+  end
 
 end

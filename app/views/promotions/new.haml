@@ -1,0 +1,18 @@
+= form_for @promotion do |form|
+  %label Company Name:
+  = form.text_field  :company_name
+  %br
+  %label Title:
+  = form.text_field  :title
+  %br
+  %label Description:
+  %br
+  = form.text_area  :desc
+  %br
+  %label Start Time:
+  = form.text_field  :start_time
+  %br
+  %label End Time:
+  = form.text_field  :end_time
+  %br
+  = submit_tag 'Submit'

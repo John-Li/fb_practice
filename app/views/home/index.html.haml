@@ -1,7 +1,14 @@
 .promotion_header
-  %h1 [Promotion Header]
+  %h3
+    = !@promotion.nil? ? @promotion.company_name.upcase : "[Promotion Company name]"
+  .header_shadow
+  %h1 
+    = !@promotion.nil? ? @promotion.title : "[Promotion Header]"
+  = render :partial => 'carousel'
+  .bottom_shadow
 .promotion_conditions
-  %h3 [Promotion conditions]
+  %h3 
+    = !@promotion.nil? ? @promotion.desc : "[Promotion conditions]"
 .how_works
   %p [How this works]
   
