@@ -43,44 +43,109 @@
 .promotion_conditions, .how_works, .credit_card, .bypass{
   text-align: center;
 }
+.how_works {
+  overflow: hidden;
+  
+  .one, .two, .three {
+    width: 200px;
+    float: left;
+    position: relative;
+    margin: 0px 15px;
+    
+    .description {
+      color: #bababa;
+      margin: 0;
+    }
+  }
+ 
+  .number{
+    color: #f3f3f3;
+    font-weight: bold;
+    font-size: 16pt;
+    line-height: 1.7;
+    height: 35px;
+    width: 35px;
+    margin: 0 80px 15px;
+    background-color: #c7a0c9;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+  }
+}
 .credit_card {
   width: 350px;
   height: 200px;
-  border: 1px solid black;
+  border: 1px solid #FFF;
   margin: auto;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   
+  span {
+    text-align: left;
+    color: #bababa;
+  }
+   
   input {
-    width: 300px;
-    height: 25px;
-    font-size: 12pt;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+    &::-webkit-input-placeholder {
+      color: #e8e8e8;
+    }
+    &:-moz-placeholder {
+      color: #e8e8e8;
+    }
     
     &#credit_card_number {
+      color: #e8e8e8;
+      font-size: 16pt;
+      width: 99%;
+      height: 45px;
       text-align: center;
-      border: 1px solid black;
-      margin: 50px 0;
-    }
+      background-color: #b2b2b2;
+      margin: 40px 0;
     
-    &#button {
-      height: 35px;
-      font-size: 14pt;
-      font-weight: bold;
-      color: #FFF;
-      border: 1px solid #f3f3f3;
-      background-color: #0076ae;
-      &:hover {
-        cursor: pointer;
-      }
     }
+  }
+}
+#button {
+  height: 30px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #c7a0c9;
+  -webkit-border-radius: 35px;
+  moz-border-radius: 35px;
+  border-radius: 35px;
+  padding: 0 15px;
+  -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+
+  
+  &:hover {
+    cursor: pointer;
   }
 }
 .bypass {
   a {
-    text-decoration: none;
-    color: #0076ae;
+    color: #bababa;
+  }
+}
+.leave_comment {
+  .title {
+    font-size: 20pt;
+    text-align: left;
+  }
+  input[type="text"] {
+    width: 100px;
+  }
+  textarea{
+    height: 100px;
+    width: 600px;
   }
 }
 #home-carousel{

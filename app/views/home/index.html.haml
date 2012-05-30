@@ -10,15 +10,40 @@
   %h3 
     = !@promotion.nil? ? @promotion.desc : "[Promotion conditions]"
 .how_works
-  %p [How this works]
+  .one
+    .number 1
+    .description Register any credit or debit card.
+  .two
+    .number 2
+    .description Visit the Store and Shop as you normaly do.
+  .three
+    .number 3
+    .description The promotion is automatically applied when you make a purchese with your registred card.
   
 .credit_card
+  %span Register credit/debit card.
   = form_for :credit_card do |f|
     = f.text_field :number, placeholder: "Enter Credit or Debit Card Number"
     = f.submit "Add Promotion to My Card", :id => "button" 
     
 .bypass
   = link_to "No thanks, I'd rather print this promotion and bring it with me.", "#"
+  
+.user_comments
+  .comment
+  
+.leave_comment 
+  .title Leave Comment
+  = form_for :comment do |f|
+    = f.label :name, "Your Name:"
+    = f.text_field :name
+    = f.label :email, "Your Email:"
+    = f.text_field :email
+    = f.label :website, "Your Website:"
+    = f.text_field :website
+    = f.label :content, "Your Comment:"
+    = f.text_area :content, size: "20x20"
+    = f.submit "Submit Comment", :id => "button" 
 
 %p.fine_print 
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
