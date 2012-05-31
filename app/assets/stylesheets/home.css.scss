@@ -42,7 +42,7 @@
     color: white;
   }
 }
-.promotion_conditions, .how_works, .credit_card, .bypass{
+.promotion_conditions, .copy, .how_works, .credit_card, .bypass{
   text-align: center;
 }
 .how_works {
@@ -50,12 +50,15 @@
   margin: auto;
   position: relative;
   width: 1000px;
+  
+  
   .one, .two, .three {
     width: 400px;
     margin: 0;
     position: absolute;
     z-index: 1;
-    
+/*    background: url(/assets/divider.png) no-repeat 50px 0px;
+*/    
     .description {
       width: 60%;
       color: #bababa;
@@ -76,7 +79,9 @@
  
   .shadow {
     height: 170px;
-    background: url(/assets/shadow.png) no-repeat 7px 0;
+    background-image: url(/assets/shadow.png), url(/assets/divider.png);
+    background-position: 7px 0, 50px 0px;
+    background-repeat: no-repeat;
     
     .number {
       width: 73px;
