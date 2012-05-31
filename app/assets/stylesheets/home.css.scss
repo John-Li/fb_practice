@@ -44,39 +44,44 @@
   text-align: center;
 }
 .how_works {
+  height: 210px;
   width: 100%;
-  margin: auto;
-  overflow: hidden;
+  margin: 40px 0;
+  position: relative;
   
   .one, .two, .three {
-    width: 300px;
-    position: relative;
-    margin: 0 0;
+    width: 400px;
+    margin: 0;
+    position: absolute;
+    z-index: 1;
     
     .description {
+      width: 60%;
       color: #bababa;
-      margin: 0;
+      margin: auto;
     }
   }
   
   .one {
-    float: left;
+    left: 20%;
   }
   .two {
-   
+    left: 36%;
+    z-index: 5;
   }
   .three {
-    float: right;
+    right: 20%;
   }
  
   .shadow {
     height: 170px;
-    background: url(/assets/shadow.png) no-repeat -10px 0;
+    background: url(/assets/shadow.png) no-repeat 7px 0;
     
     .number {
       width: 73px;
       height: 73px;
       margin: auto;
+      padding-top: 50px;
     } 
   }
 
@@ -124,25 +129,13 @@
 }
 
 #button {
-  /*  height: 30px;
-    font-size: 10pt;
-    font-weight: bold;
-    color: #FFF;
-    background-color: #c7a0c9;
-    -webkit-border-radius: 35px;
-    moz-border-radius: 35px;
-    border-radius: 35px;
-    padding: 0 15px;
-    -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-    box-shadow: 0 2px 1px rgba(0,0,0,0.5);*/
-    padding: 19px 145px;
-    background: url(/assets/cc_submit.gif) no-repeat 0 0;
-    
-    &:hover {
-      cursor: pointer;
-    }
+  padding: 19px 145px;
+  background: url(/assets/cc_submit.gif) no-repeat 0 0;
+  
+  &:hover {
+    cursor: pointer;
   }
+}
 
 .bypass {
   a {
