@@ -44,35 +44,45 @@
   text-align: center;
 }
 .how_works {
+  width: 100%;
+  margin: auto;
   overflow: hidden;
   
   .one, .two, .three {
-    width: 200px;
-    float: left;
+    width: 300px;
     position: relative;
-    margin: 0px 15px;
+    margin: 0 0;
     
     .description {
       color: #bababa;
       margin: 0;
     }
   }
- 
-  .number{
-    color: #f3f3f3;
-    font-weight: bold;
-    font-size: 16pt;
-    line-height: 1.7;
-    height: 35px;
-    width: 35px;
-    margin: 0 80px 15px;
-    background-color: #c7a0c9;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-    box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+  
+  .one {
+    float: left;
   }
+  .two {
+   
+  }
+  .three {
+    float: right;
+  }
+ 
+  .shadow {
+    height: 170px;
+    background: url(/assets/shadow.png) no-repeat -10px 0;
+    
+    .number {
+      width: 73px;
+      height: 73px;
+      margin: auto;
+    } 
+  }
+
+  .one .number {background: url(/assets/number_buttons.gif) no-repeat 4% 50%;}
+  .two .number {background: url(/assets/number_buttons.gif) no-repeat 50% 50%;}
+  .three .number {background: url(/assets/number_buttons.gif) no-repeat 95% 50%;}
 }
 .credit_card {
   width: 350px;
@@ -85,6 +95,7 @@
   -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: url(/assets/cc_background.png);
   
   span {
     text-align: left;
@@ -111,42 +122,36 @@
     }
   }
 }
-#button {
-  height: 30px;
-  font-size: 10pt;
-  font-weight: bold;
-  color: #FFF;
-  background-color: #c7a0c9;
-  -webkit-border-radius: 35px;
-  moz-border-radius: 35px;
-  border-radius: 35px;
-  padding: 0 15px;
-  -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
-  box-shadow: 0 2px 1px rgba(0,0,0,0.5);
 
-  
-  &:hover {
-    cursor: pointer;
+#button {
+  /*  height: 30px;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #c7a0c9;
+    -webkit-border-radius: 35px;
+    moz-border-radius: 35px;
+    border-radius: 35px;
+    padding: 0 15px;
+    -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 1px rgba(0,0,0,0.5);*/
+    padding: 19px 145px;
+    background: url(/assets/cc_submit.gif) no-repeat 0 0;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
-}
+
 .bypass {
   a {
     color: #bababa;
   }
 }
-.leave_comment {
-  .title {
-    font-size: 20pt;
-    text-align: left;
-  }
-  input[type="text"] {
-    width: 100px;
-  }
-  textarea{
-    height: 100px;
-    width: 600px;
-  }
+.fine_print {
+  color: #f7f7f7;
+  background: #a8a8a8;
 }
 #home-carousel{
   height: 300px;
