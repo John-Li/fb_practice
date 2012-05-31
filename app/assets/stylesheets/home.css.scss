@@ -1,7 +1,9 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.wrapper {
+  background: url(/assets/leather.png);
+}
 .promotion_header {
   margin: 0;
   .header_shadow {
@@ -84,22 +86,39 @@
   .two .number {background: url(/assets/number_buttons.gif) no-repeat 50% 50%;}
   .three .number {background: url(/assets/number_buttons.gif) no-repeat 95% 50%;}
 }
+#credit_card_shadow {
+  height: 523px;
+  background: url(/assets/shadow_under_card.png) no-repeat 50% 49%;
+}
 .credit_card {
-  width: 350px;
-  height: 200px;
-  border: 1px solid #FFF;
-  margin: auto;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+  background: url("/assets/cc_background.png") repeat scroll 0 0 transparent;
+  border: 1px solid #cfcfcf;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  top: 140px;
+  width: 535px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
   border-radius: 10px;
-  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  background: url(/assets/cc_background.png);
+
+  #credit_cards_icon {
+    background: url("/assets/credit_cards.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 35px;
+    margin: 10px;
+    width: 226px;
+  }
+
+  a {
+    color: grey;
+    font-size: 12px;
+  }
   
-  span {
-    text-align: left;
-    color: #bababa;
+  span.card_left {
+    color: #BABABA;
+    float: left;
+    padding: 20px;
   }
    
   input {
@@ -111,19 +130,18 @@
     }
     
     &#credit_card_number {
-      color: #e8e8e8;
+      background-color: #B2B2B2;
+      color: #E8E8E8;
       font-size: 16pt;
-      width: 99%;
-      height: 45px;
+      height: 58px;
+      margin: 0;
       text-align: center;
-      background-color: #b2b2b2;
-      margin: 40px 0;
-    
+      width: 532px;
     }
   }
 }
 
-#button {
+.submit_button {
   /*  height: 30px;
     font-size: 10pt;
     font-weight: bold;
@@ -132,13 +150,13 @@
     -webkit-border-radius: 35px;
     moz-border-radius: 35px;
     border-radius: 35px;
-    padding: 0 15px;
     -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
     box-shadow: 0 2px 1px rgba(0,0,0,0.5);*/
-    padding: 19px 145px;
-    background: url(/assets/cc_submit.gif) no-repeat 0 0;
-    
+    background: url("/assets/cc_submit.gif") no-repeat scroll 0 0 transparent;
+    margin: 35px 115px;
+    height: 56px;
+    width: 300px;
     &:hover {
       cursor: pointer;
     }

@@ -15,5 +15,9 @@
 body{
   width: 100%;
   margin: auto;
-  background: url(/assets/leather.png);
+  background-color: #ededed;
+}
+
+.footer {
+  height: 60px;
 }

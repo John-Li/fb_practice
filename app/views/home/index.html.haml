@@ -9,6 +9,18 @@
 .promotion_conditions
   %h3 
     = !@promotion.nil? ? @promotion.desc : "[Promotion conditions]"
+
+#credit_card_shadow
+  .credit_card
+    #credit_cards_icons
+    %span.card_left Register credit/debit card.
+    #credit_cards_icon
+    = form_for :credit_card do |f|
+      = f.text_field :number, placeholder: "Enter Credit or Debit Card Number"
+      .submit_button
+        = link_to "" , "#", :onclick => "$('form[name=credit_card]').submit(); return false;"
+    = link_to 'Terms of Service', "#"
+
 .how_works
   .one
     .shadow
@@ -22,21 +34,7 @@
     .shadow
       .number
     .description The promotion is automatically applied when you make a purchese with your registred card.
-  
-.credit_card
-  %span Register credit/debit card.
-  = form_for :credit_card do |f|
-    = f.text_field :number, placeholder: "Enter Credit or Debit Card Number"
-    = link_to "" , "#", :id => "button", :onclick => "$('form[name=credit_card]').submit(); return false;"
     
 .bypass
   = link_to "No thanks, I'd rather print this promotion and bring it with me.", "#"
-  
-%p.fine_print 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  
+ 

@@ -1,5 +1,5 @@
 <div id="fileupload">
-    <%= form_for @image, :html => { :multipart => true  } do |fields| %>
+    <%= form_for @image, :url => promotion_images_path, :html => { :multipart => true  } do |fields| %>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
             <div class="span7">
