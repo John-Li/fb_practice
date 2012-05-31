@@ -12,6 +12,11 @@
  *= require_tree .
 */
 
+@font-face{
+  font-family: MinionPro-Regular; 
+  src: url(/fonts/MinionPro-Regular.otf);
+}
+
 body{
   width: 100%;
   margin: auto;

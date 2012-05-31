@@ -45,20 +45,23 @@
 .promotion_conditions, .copy, .how_works, .credit_card, .bypass{
   text-align: center;
 }
+.copy {
+  color: #5f98cf;
+  font-size: 20px;
+  font-family: MinionPro-Regular;
+}
 .how_works {
   height: 225px;
   margin: auto;
   position: relative;
   width: 1000px;
   
-  
   .one, .two, .three {
     width: 400px;
     margin: 0;
     position: absolute;
     z-index: 1;
-/*    background: url(/assets/divider.png) no-repeat 50px 0px;
-*/    
+    
     .description {
       width: 60%;
       color: #bababa;
