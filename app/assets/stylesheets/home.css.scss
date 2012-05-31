@@ -3,13 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wrapper {
   background: url(/assets/leather.png);
+  padding: 0 0 25px;
 }
 .promotion_header {
   margin: 0;
   .header_shadow {
     background-color: black;
     box-shadow: 0 10px 15px 0;
-    height: 40px;
+    height: 75px;
     opacity: 0.5;
     position: absolute;
     width: 100%;
@@ -38,7 +39,7 @@
     left: 48%;
     position: absolute;
     z-index: 6;
-    margin: 10px 0;
+    margin: 2px 0;
     color: white;
   }
 }
@@ -80,7 +81,7 @@
   .shadow {
     height: 170px;
     background-image: url(/assets/shadow.png), url(/assets/divider.png);
-    background-position: 7px 0, 50px 0px;
+    background-position: center 2px, center top;
     background-repeat: no-repeat;
     
     .number {

@@ -20,4 +20,7 @@ body{
 
 .footer {
   height: 60px;
+  background-image: url(/assets/border.png);
+  background-position: center top;
+  background-repeat: repeat-x;
 }
