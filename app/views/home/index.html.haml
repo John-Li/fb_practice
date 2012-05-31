@@ -1,6 +1,6 @@
 .promotion_header
   %h3
-    = !@promotion.nil? ? @promotion.company_name.upcase : "[Promotion Company name]"
+    = !@promotion.nil? ? image_tag(@promotion.logo.to_s) : "[Promotion Company name]"
   .header_shadow
   %h1 
     = !@promotion.nil? ? @promotion.title : "[Promotion Header]"

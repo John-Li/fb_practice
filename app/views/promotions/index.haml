@@ -2,6 +2,8 @@
 %table.sample
   %tr
     %th Id
+    %th Company Name
+    %th Logo
     %th Title
     %th Desc
     %th Start time
@@ -10,6 +12,10 @@
     %tr
       %td
         = promotion.id
+      %td
+        = promotion.company_name
+      %td
+        = image_tag(promotion.logo.to_s)
       %td 
         = link_to promotion.title, promotion_path(promotion)
       %td 
