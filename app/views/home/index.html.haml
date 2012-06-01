@@ -1,4 +1,4 @@
-.promotion_header
+- content_for :header do
   %h3
     = !@promotion.nil? ? image_tag(@promotion.logo.to_s) : "[Promotion Company name]"
   .header_shadow
@@ -7,7 +7,7 @@
   = render :partial => 'carousel'
   .bottom_shadow
 .promotion_conditions
-  %h3 
+  %h2 
     = !@promotion.nil? ? @promotion.desc : "[Promotion conditions]"
 
 .copy Upload this promotion to your card. No need to bring a flyer with you!

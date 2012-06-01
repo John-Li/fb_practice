@@ -18,14 +18,15 @@
 }
 
 body{
+  background: url(/assets/leather.png);
   width: 100%;
   margin: auto;
   background-color: #ededed;
 }
 
-.footer {
+footer {
   height: 60px;
   background-image: url(/assets/border.png);
-  background-position: center top;
+  background-position: center 1px;
   background-repeat: repeat-x;
 }
