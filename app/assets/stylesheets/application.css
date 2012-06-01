@@ -34,3 +34,23 @@ footer {
   background-position: center 1px;
   background-repeat: repeat-x;
 }
+
+.flash {
+  color: white;
+  font-size: 24px;
+  height: 30px;
+  padding: 10px 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.notice {
+  background-color: green;
+}
+
+.error, .warning {
+  background-color: red;
+}

@@ -1,6 +1,17 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $('.credit_card .submit_button').click -> 
+    $('#promotion_cards_card_number').val('')
+    $.ajax({
+        contentType: 'script',
+        type: 'POST',
+        url:  "<%= Rails.application.routes.url_helpers.promotion_cards_path %>",
+        data: $("form.gb_order_form").serialize()
+      })
+      
+
 @HomeCarousel = () ->
   $.ajax
     url: document.location
@@ -39,3 +50,25 @@
     });
     $(window).resize ->
       $('#home-carousel > ul').css({left: (( $(window).width() - 1960) / 2+$(window).scrollLeft() + "px")})
+
+@fireFlash = (msg, flash_type) ->
+  $(".flash").remove();
+  console.log
+  if msg and flash_type
+    html = ("<div class=\"flash " + flash_type + "\" class=\"alert-message info\" style=\"display: none;\">" + msg + "</div>")
+    $(html).appendTo('body').fadeIn(3000, ->
+      $(".flash").fadeOut(3000, ->
+        $(".flash").remove();
+        return false;
+      )
+      return false;
+    )
+
+$ ->
+  $(document).ajaxError (event, request) ->
+    if request.getResponseHeader('X-Message') != null
+      fireFlash(request.getResponseHeader('X-Message'), request.getResponseHeader('X-Message-Type'))
+
+  $(document).ajaxComplete (event, request) ->
+    if request.getResponseHeader('X-Message') != null
+      fireFlash(request.getResponseHeader('X-Message'), request.getResponseHeader('X-Message-Type'))
