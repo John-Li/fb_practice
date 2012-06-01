@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530095634) do
+ActiveRecord::Schema.define(:version => 20120531145930) do
 
   create_table "images", :force => true do |t|
     t.string   "file_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120530095634) do
     t.text   "desc"
     t.time   "start_time"
     t.time   "end_time"
+    t.string "logo"
   end
 
 end
