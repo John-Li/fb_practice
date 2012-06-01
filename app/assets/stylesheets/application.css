@@ -16,6 +16,10 @@
   font-family: MinionPro-Regular; 
   src: url(/fonts/MinionPro-Regular.otf);
 }
+@font-face{
+  font-family: AvenirLTStd-Light;
+  src: url(/fonts/AvenirLTStd-Light.otf);
+}
 
 body{
   background: url(/assets/leather.png);

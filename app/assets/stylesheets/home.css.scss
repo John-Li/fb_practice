@@ -29,12 +29,14 @@ header {
     z-index: 5;
   }
   h1 {
-    font-size: 52px;
+    font-family: MinionPro-Regular;
+    color: #5f98cf;
+    font-size: 60pt;
     left: 27%;
     opacity: 0.75;
     position: absolute;
     top: 40px;
-    width: 570px;
+    width: 100%;
     z-index: 5;
   }
   h3 {
@@ -49,13 +51,17 @@ header {
   text-align: center;
 }
 .promotion_conditions {
-  width: 750px;
-  margin: 50px auto;
+  width: 800px;
+  margin: 20px auto;
+  font-family: MinionPro-Regular;
+  letter-spacing: 0.5px;
+  font-size: 27pt;
+  color: #bababa;
 }
 .copy {
   color: #5f98cf;
-  font-size: 20px;
-  font-family: MinionPro-Regular;
+  font-size: 18pt;
+  font-family: AvenirLTStd-Light;
 }
 .how_works {
   height: 280px;
@@ -73,6 +79,8 @@ header {
       width: 60%;
       color: #bababa;
       margin: auto;
+      font-size: 15pt;
+      font-family: AvenirLTStd-Light;
     }
   }
   
@@ -125,28 +133,34 @@ header {
   }
 
   a {
-    color: grey;
-    font-size: 12px;
+    color: #bababa;
+    font-size: 10pt;
+    font-family: AvenirLTStd-Light;
   }
   
   span.card_left {
     color: #BABABA;
     float: left;
     padding: 20px;
+    font-family: AvenirLTStd-Light;
+    font-size: 15pt;
   }
    
   input {
     &::-webkit-input-placeholder {
       color: #e8e8e8;
+      font-size: 25pt;
     }
     &:-moz-placeholder {
       color: #e8e8e8;
+      font-size: 25pt;
     }
     
     &#credit_card_number {
       background-color: #B2B2B2;
       color: #E8E8E8;
-      font-size: 16pt;
+      font-family: MinionPro-Regular;
+      font-size: 40pt;
       height: 58px;
       margin: 0;
       text-align: center;
@@ -180,6 +194,8 @@ header {
 .bypass {
   a {
     color: #bababa;
+    font-family: AvenirLTStd-Light;
+    font-size: 16pt;
   }
 }
 .fine_print {
