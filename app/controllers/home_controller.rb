@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @promotion = Promotion.first
+    @promotion = Promotion.new unless @promotion
     if @promotion
       respond_to do |format|
         format.html

@@ -16,7 +16,6 @@ class ImagesController < PromotionsController
     :promotion_id => params[:image][:promotion_id])
     @image.file = params[:image][:file]
     if @image.save
-
       respond_to do |format|
         format.html {  
           render :json => [@image.to_jq_upload].to_json, 
