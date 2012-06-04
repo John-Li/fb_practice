@@ -26,6 +26,7 @@ body{
   width: 100%;
   margin: auto;
   background-color: #ededed;
+  text-shadow: 0.5px 1px 1px #FFF, 0px -1px #555;
 }
 
 footer {

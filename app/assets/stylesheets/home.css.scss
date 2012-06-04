@@ -102,9 +102,9 @@ header {
     } 
   }
 
-  .one .number {background: url(/assets/number_buttons.gif) no-repeat 4% 50%;}
-  .two .number {background: url(/assets/number_buttons.gif) no-repeat 50% 50%;}
-  .three .number {background: url(/assets/number_buttons.gif) no-repeat 95% 50%;}
+  .one .number {background: url(/assets/buttons_blue.png) no-repeat 0 50%;}
+  .two .number {background: url(/assets/buttons_blue.png) no-repeat 50% 50%;}
+  .three .number {background: url(/assets/buttons_blue.png) no-repeat 100% 50%;}
 }
 #credit_card_shadow {
   height: 523px;
@@ -185,12 +185,12 @@ header {
     -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.5);
     box-shadow: 0 2px 1px rgba(0,0,0,0.5);*/
-    background: url("/assets/cc_submit.gif") no-repeat scroll 0 0 transparent;
-    left: 106px;
+    background: url("/assets/submit_blue.png") no-repeat scroll 0 0 transparent;
+    left: 95px;
     position: relative;
     top: 55px;
-    height: 56px;
-    width: 300px;
+    height: 70px;
+    width: 350px;
     &:hover {
       cursor: pointer;
     }
