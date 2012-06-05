@@ -1,5 +1,8 @@
 Retailers::Application.routes.draw do
 
+  get "persons/add_person"
+  match "persons/get_person" => "persons#get_person", :via => :get, :as => :get_person
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
