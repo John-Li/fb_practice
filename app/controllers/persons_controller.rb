@@ -1,10 +1,10 @@
 class PersonsController < ApplicationController
 
-  def add_person
+  def index
   end
   
-  def get_person
-    @person = Person.one_at_a_time
+  def show
+    @person = Person.where("id > ?", params[:id]).first
     respond_to do |format|
       format.html 
       format.json do 
@@ -13,3 +13,4 @@ class PersonsController < ApplicationController
     end
   end
 end
+

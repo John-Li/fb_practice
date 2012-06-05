@@ -3,15 +3,20 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+  counter = 0
   $('a#get_person').click -> 
     $.ajax
       dataType: 'json',
       type: 'GET',
-      url:  "<%= Rails.application.routes.url_helpers.get_person_path %>"
+      url:  "<%= Rails.application.routes.url_helpers.persons_show_path%>"
+      data: 
+        id: counter
       success: (data) =>
         parse_data(data)
-        
-  parse_data = (data) => 
-    markup = "<tr><td>$name</td></tr>"
+        counter = data.id
+        console.log(counter)  
+   
+  parse_data = (data) =>
+    markup = "<tr><td>${name}</td></tr>"
     $.template("rowWithName", markup)
     $.tmpl("rowWithName", data).appendTo('.persons table')      
