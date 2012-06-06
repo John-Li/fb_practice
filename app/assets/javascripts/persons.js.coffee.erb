@@ -4,6 +4,8 @@
 
 $ ->
   counter = 0
+  markup = "<tr><td>${id}</td><td>${name}</td></tr>"
+  
   $('a#get_person').click -> 
     $.ajax
       dataType: 'json',
@@ -16,6 +18,22 @@ $ ->
         counter = data.id
    
   parse_data = (data) =>
-    markup = "<tr><td>${name}</td></tr>"
     $.template("rowWithName", markup)
-    $.tmpl("rowWithName", data).appendTo('.persons table')      
+    $.tmpl("rowWithName", data).appendTo('.persons tbody')
+    
+  $('.sort a').click ->
+    field = $(this).attr('field')
+    order = $(this).attr('order')
+    $('.persons tbody').remove()
+    $.ajax
+      dataType: 'json',
+      type: 'GET',
+      url:  "persons"
+      data:
+        field: field
+        order: order
+      success: (data) =>
+        for person in data
+          do (person) =>
+            $.template("rowWithName", markup)
+            $.tmpl("rowWithName", person).appendTo('.persons table')

@@ -1,5 +1,17 @@
 .persons
   %table
-    %tr
-      %th Name
-  = link_to "Add Person", "#", :id => "get_person"
+    %thead
+      %tr
+        %th 
+          .sort
+            = link_to 'A', '#', :field => 'id', :order => 'asc'
+            ID
+            = link_to 'V', '#', :field => 'id', :order => 'desc'
+        %th 
+          .sort
+            =link_to 'A', '#', :field => 'name', :order => 'asc'
+            Name
+            = link_to 'V', '#', :field => 'name', :order => 'desc'
+        %th 
+          = link_to 'Add Person', '#', :id => 'get_person'
+    %tbody
