@@ -1,5 +1,5 @@
 Retailers::Application.routes.draw do
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -46,14 +46,14 @@ Retailers::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
   resources :promotion_cards
   resources :promotions do
     resources :images
   end
   
-  resources :persons, :except => :show
-  match 'persons/show' => 'persons#show', :via => :get
-  
+  resources :persons
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'

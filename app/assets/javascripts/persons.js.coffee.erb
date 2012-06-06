@@ -8,13 +8,12 @@ $ ->
     $.ajax
       dataType: 'json',
       type: 'GET',
-      url:  "<%= Rails.application.routes.url_helpers.persons_show_path%>"
+      url:  "persons/#{counter}"
       data: 
         id: counter
       success: (data) =>
         parse_data(data)
         counter = data.id
-        console.log(counter)  
    
   parse_data = (data) =>
     markup = "<tr><td>${name}</td></tr>"
