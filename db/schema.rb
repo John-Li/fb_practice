@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605073904) do
+ActiveRecord::Schema.define(:version => 20120606142831) do
 
   create_table "images", :force => true do |t|
     t.string   "file_name"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(:version => 20120605073904) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "person_favourites", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "favourites_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "person_favourites", ["favourites_id"], :name => "index_person_favourites_on_favourites_id"
+  add_index "person_favourites", ["person_id", "favourites_id"], :name => "index_person_favourites_on_person_id_and_favourites_id", :unique => true
+  add_index "person_favourites", ["person_id"], :name => "index_person_favourites_on_person_id"
 
   create_table "promotion_cards", :force => true do |t|
     t.string   "card_number"
