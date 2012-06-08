@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   attr_accessible :name
   
+  validates :name, presence: true, length: {maximum: 50}, uniqueness: { case_sensitive: true }
+  
   has_many :favourites_relations, foreign_key: :favourite_id, dependent: :destroy
   has_many :favourites, through: :favourites_relations, source: :favourites 
   has_many :reverse_favourites_relations, foreign_key: "favourites_id",

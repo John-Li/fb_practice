@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606142831) do
+ActiveRecord::Schema.define(:version => 20120608120402) do
 
   create_table "favourites_relations", :force => true do |t|
     t.integer  "favourite_id"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120606142831) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "people", ["name"], :name => "index_people_on_name", :unique => true
 
   create_table "promotion_cards", :force => true do |t|
     t.string   "card_number"

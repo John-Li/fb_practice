@@ -25,6 +25,12 @@ end
 group :development do
   gem 'thin'
   gem 'faker'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 gem "carrierwave"
