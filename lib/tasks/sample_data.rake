@@ -21,7 +21,7 @@ end
 
 def make_associations
   puts 'Deleting old associations'
-  PersonFavourites.destroy_all
+  FavouritesRelation.destroy_all
   puts 'Creating new associations'
   people = Person.all
   people.each do |man|
