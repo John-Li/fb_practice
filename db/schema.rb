@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 20120606142831) do
 
+  create_table "favourites_relations", :force => true do |t|
+    t.integer  "favourite_id"
+    t.integer  "favourites_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "favourites_relations", ["favourite_id", "favourites_id"], :name => "index_favourites_relations_on_favourite_id_and_favourites_id", :unique => true
+  add_index "favourites_relations", ["favourite_id"], :name => "index_favourites_relations_on_favourite_id"
+  add_index "favourites_relations", ["favourites_id"], :name => "index_favourites_relations_on_favourites_id"
+
   create_table "images", :force => true do |t|
     t.string   "file_name"
     t.string   "content_type"
@@ -28,17 +39,6 @@ ActiveRecord::Schema.define(:version => 20120606142831) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "person_favourites", :force => true do |t|
-    t.integer  "person_id"
-    t.integer  "favourites_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "person_favourites", ["favourites_id"], :name => "index_person_favourites_on_favourites_id"
-  add_index "person_favourites", ["person_id", "favourites_id"], :name => "index_person_favourites_on_person_id_and_favourites_id", :unique => true
-  add_index "person_favourites", ["person_id"], :name => "index_person_favourites_on_person_id"
 
   create_table "promotion_cards", :force => true do |t|
     t.string   "card_number"
