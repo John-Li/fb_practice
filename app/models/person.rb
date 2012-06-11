@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   attr_accessible :name
   
-  validates :name, presence: true, length: {maximum: 50}, uniqueness: { case_sensitive: true }
+  validates :name, presence: true, length: {maximum: 50}, uniqueness: true
   
   has_many :favourites_relations, foreign_key: :favourite_id, dependent: :destroy
   has_many :favourites, through: :favourites_relations, source: :favourites 
@@ -12,5 +12,13 @@ class Person < ActiveRecord::Base
   
   def add_to_favourites!(other_person)
     favourites_relations.create!(favourites_id: other_person.id)
+  end
+  
+  def delete_from_favourites!(other_person)
+    favourites_relations.find_by_favourites_id(other_person.id).destroy
+  end
+  
+  def has_in_favourites?(other_user)
+    favourites.include?(other_user)
   end
 end
