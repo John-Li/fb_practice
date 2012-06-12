@@ -2,12 +2,8 @@ class PersonsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @people = if %w{name id}.include? params[:field] and %w{asc desc}.include? params[:order]
-                Person.order("#{params[:field]} #{params[:order]}") 
-              else
-                Person.all
-              end
-    
+    @people = Person.by_order(params[:field], params[:order])
+      
     respond_with @people  
   end
   

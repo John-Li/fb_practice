@@ -23,12 +23,15 @@ def make_associations
   puts 'Deleting old associations'
   FavouritesRelation.destroy_all
   puts 'Creating new associations'
+  started = Time.now
   people = Person.all
   people.each do |man|
     random_people = []
-    10.times {random_people << people[rand(10)+1]}
+    10.times {random_people << people[rand(0..99)]}
     random_people.uniq.each {|random_man| man.add_to_favourites!(random_man)}
   end
+  finished = Time.now
+  puts "Total time spent for creating associations is: #{finished - started} seconds"
   puts 'Done!'
 end
 

@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   attr_accessible :name
   
+  scope :by_order, lambda {|field, order| order("#{field} #{order}") if %w{name id}.include? field and %w{asc desc}.include? order}
+  
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
   
   has_many :favourites_relations, foreign_key: :favourite_id, dependent: :destroy
@@ -11,7 +13,7 @@ class Person < ActiveRecord::Base
   has_many :in_favourites, through: :reverse_favourites_relations, source: :favourite
   
   def add_to_favourites!(other_person)
-    favourites_relations.create!(favourites_id: other_person.id)
+    favourites_relations.create(favourites_id: other_person.id)
   end
   
   def delete_from_favourites!(other_person)

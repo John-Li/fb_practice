@@ -10,7 +10,7 @@ $ ->
     $.ajax
       dataType: 'json',
       type: 'GET',
-      url:  "persons/#{counter}"
+      url:  "<%= Rails.application.routes.url_helpers.persons_path%>"+"/#{counter}"
       data: 
         id: counter
       success: (data) =>
@@ -28,7 +28,7 @@ $ ->
     $.ajax
       dataType: 'json',
       type: 'GET',
-      url:  "persons"
+      url:  "<%= Rails.application.routes.url_helpers.persons_path%>"
       data:
         field: field
         order: order
