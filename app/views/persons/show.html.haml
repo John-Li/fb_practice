@@ -1,0 +1,24 @@
+.name
+  .prev= link_to '&#8249'.html_safe, @previous_person
+  .current= @person.name
+  .next= link_to '&#8250'.html_safe, @next_person
+.clr
+.listings
+  .favourites
+    %h2 Favourites
+    - @person_favourites.each do |favourite|
+      .favourite
+        = link_to "#{favourite.name}", favourite, class: 'follow'  
+        = link_to "&#8855".html_safe, '#', title: "delete from favourites", current_person_id: "#{@person.id}", favourite_id: "#{favourite.id}", type: 'favourite', class: 'delete'
+  .in_favourites
+    %h2 In Favourites
+    - @person_in_favourites.each do |in_favourite|
+      .in_favourite
+        = link_to "#{in_favourite.name}", in_favourite, class: 'follow'
+        = link_to "&#8855".html_safe, '#', title: "delete yourself from favourites", current_person_id: "#{@person.id}", favourite_id: "#{in_favourite.id}",  type: 'in_favourite', class: 'delete'
+  .add_to_favourites
+    %h2 Select to add to your favourites
+    = select_tag 'favourite_id', options_from_collection_for_select(@people_without_self, 'id', 'name')
+    = hidden_field_tag 'current_person_id', "#{@person.id}"
+.clr
+= will_paginate @pagination_collection, class: 'apple_pagination'

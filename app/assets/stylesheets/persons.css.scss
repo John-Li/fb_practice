@@ -1,3 +1,111 @@
 // Place all the styles related to the Persons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.persons{
+  
+  table {
+    text-align: center;
+    margin: auto;
+        
+    .sort a{
+      font-size: 10pt;
+      color: #aaa;
+      padding: 9px;
+      text-decoration: none;
+      
+      &:hover {
+        text-shadow: 0 0 30px black;
+        color: #F3F3F3;
+      }
+    }
+    .person {
+      a {
+        color: black;
+        text-decoration: none;
+    
+        &:hover{
+          color: black;
+          text-decoration: underline;
+        }
+      }
+      .name{
+        height: 30px;
+      }
+    }  
+  }
+  
+}
+
+
+.name{
+  height: 60px;
+  text-align: center;
+  
+  .prev, .current, .next{
+    font-weight: bold;
+    display: inline-block;
+  } 
+  .prev, .next{
+    margin-top: 7px;  
+
+    a{
+      text-decoration: none;
+      font-size: 30pt;
+      color: #aaa;
+      padding: 9px;
+      &:hover{
+        text-shadow: 0 0 30px black;
+        color: #f3f3f3 ;
+      }
+    }
+  }
+  .current{
+    font-size: 30pt;
+  }
+}
+.listings{
+  
+  .favourites{
+    width: 33%;
+    float: left;
+    
+    .favourite{
+      width: 50%;
+    }
+  }
+  .in_favourites{
+    width: 33%;
+    float: left;
+    
+    .in_favourite{ 
+      width: 50%;
+    }
+  }
+  .add_to_favourites{
+    width: 33%;
+    float: left;
+  }
+}
+.favourites, .in_favourites{
+  display: inline;
+  
+  a.follow{
+    color: black;
+    text-decoration: none;
+    
+    &:hover{
+      color: black;
+      text-decoration: underline;
+    }
+  }
+  .delete{
+    text-decoration: none;
+    float: right;
+    color: #e5e5e5;
+    
+    &:hover{
+      color: red;
+    }
+  }
+}

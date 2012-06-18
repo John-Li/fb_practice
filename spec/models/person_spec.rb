@@ -49,3 +49,28 @@ describe Person do
     end
   end
 end
+
+describe Person do
+  let(:rob) { mock_person }
+
+  it "is valid by default" do
+    rob.should be_valid
+  end
+
+  subject { rob }
+
+  it { should respond_to(:name) }
+  
+  describe "when name is too long" do
+    before { rob.name = "a" * 51 }
+    it { should_not be_valid }
+  end
+  
+  protected
+  
+  def mock_person
+    @mock_person ||= mock_model(Person, {
+      name: 'Example Name'  
+    })
+  end
+end

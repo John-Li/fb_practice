@@ -35,6 +35,7 @@ footer {
   background-position: center 1px;
   background-repeat: repeat-x;
 }
+.clr{ clear: both;}
 
 .flash {
   color: white;
@@ -55,3 +56,31 @@ footer {
 .error, .warning {
   background-color: red;
 }
+
+.apple_pagination {
+  margin-top: 20px;
+  border: 1px 0px #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    border: 2px inset #e5e5e5;
+    font-style: normal;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: 0 0 30px black;}
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }

@@ -7,4 +7,14 @@ class FavouritesRelation < ActiveRecord::Base
   
   validates :favourite, presence: true
   validates :favourites, presence: true
+  
+  def self.depending_on_fav_type(current_person_id, favourite_id, type)
+    type == 'favourite' ? (favourite_id, favourites_id = current_person_id, favourite_id) : ( favourite_id, favourites_id = favourite_id, current_person_id) 
+    find_by_favourite_id_and_favourites_id(favourite_id, favourites_id)
+    # if type == 'favourite'
+    #   find_by_favourite_id_and_favourites_id(current_person_id, favourite_id)
+    # elsif type == 'in_favourite'
+    #   find_by_favourite_id_and_favourites_id(favourite_id, current_person_id)
+    # end
+  end  
 end

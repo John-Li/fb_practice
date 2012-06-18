@@ -4,7 +4,7 @@
 
 $ ->
   counter = 0
-  markup = "<tr><td>${id}</td><td>${name}</td></tr>"
+  markup = "<tr class='person'><td class='id'>${id}</td><td class='name'>${name}</td></tr>"
   
   $('a#get_person').click -> 
     $.ajax
@@ -24,7 +24,7 @@ $ ->
   $('.sort a').click ->
     field = $(this).attr('field')
     order = $(this).attr('order')
-    $('.persons tbody').remove()
+    $('.persons tbody').empty()
     $.ajax
       dataType: 'json',
       type: 'GET',
@@ -36,4 +36,44 @@ $ ->
         for person in data
           do (person) =>
             $.template("rowWithName", markup)
-            $.tmpl("rowWithName", person).appendTo('.persons table')
+            $.tmpl("rowWithName", person).appendTo('.persons tbody')
+  
+  $('.listings a.delete').click ->
+    favourite_id = $(this).attr('favourite_id')
+    current_person_id = $(this).attr('current_person_id')
+    type = $(this).attr('type')
+    $(this).parent().remove()
+    $.ajax
+      dataType: 'json',
+      type: 'DELETE',
+      url:  "<%= Rails.application.routes.url_helpers.favourites_relations_path %>"
+      data:
+        favourite_id: favourite_id
+        current_person_id: current_person_id
+        type: type
+        
+  $('.add_to_favourites select#favourite_id').change ->
+    favourite_id = $(this).attr('value')
+    current_person_id = $('.add_to_favourites #current_person_id').attr('value')
+    $.ajax
+      dataType: 'json',
+      type: 'POST',
+      url: "<%= Rails.application.routes.url_helpers.favourites_relations_path %>" 
+      data:
+        favourite_id: favourite_id
+        current_person_id: current_person_id
+        
+  $('select#first_letter').change ->
+  first_letter = $(this).val()
+  $('.persons tbody').empty()
+  $.ajax
+    dataType: 'json',
+    type: 'GET',
+    url: "<%= Rails.application.routes.url_helpers.persons_path %>" 
+    data:
+      first_letter: first_letter
+    success: (data) =>
+      for person in data
+        do (person) =>
+          $.template("rowWithName", markup)
+          $.tmpl("rowWithName", person).appendTo('.persons tbody')

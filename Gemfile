@@ -36,7 +36,7 @@ end
 
 gem "carrierwave"
 gem "mini_magick"
-
+gem 'will_paginate'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

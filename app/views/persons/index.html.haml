@@ -1,17 +1,27 @@
+.sort_by_letter 
+  Select by first letter in the name
+  = select_tag 'first_letter', @letters_for_select.html_safe
 .persons
   %table
     %thead
       %tr
         %th 
           .sort
-            = link_to 'A', '#', :field => 'id', :order => 'asc'
+            = link_to "&#8743".html_safe, '#', :field => 'id', :order => 'asc'
             ID
-            = link_to 'V', '#', :field => 'id', :order => 'desc'
+            = link_to "&#8744".html_safe, '#', :field => 'id', :order => 'desc'
         %th 
           .sort
-            =link_to 'A', '#', :field => 'name', :order => 'asc'
+            =link_to "&#8743".html_safe, '#', :field => 'name', :order => 'asc'
             Name
-            = link_to 'V', '#', :field => 'name', :order => 'desc'
-        %th 
-          = link_to 'Add Person', '#', :id => 'get_person'
-    %tbody
+            = link_to "&#8744".html_safe, '#', :field => 'name', :order => 'desc'
+        / %th 
+        /   = link_to 'Add Person', '#', :id => 'get_person'
+        /   .add_to_favourites
+        / %th 
+    - @people.each do |person|
+      %tr.person
+        %td.id= person.id
+        %td.name= link_to "#{person.name}", person
+
+= will_paginate @people, class: 'apple_pagination'
