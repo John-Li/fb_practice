@@ -38,7 +38,7 @@ $ ->
             $.template("rowWithName", markup)
             $.tmpl("rowWithName", person).appendTo('.persons tbody')
   
-  $('.listings a.delete').click ->
+  $('a#delete_favourite, a#delete_in_favourite').click ->
     favourite_id = $(this).attr('favourite_id')
     current_person_id = $(this).attr('current_person_id')
     type = $(this).attr('type')
@@ -62,18 +62,20 @@ $ ->
       data:
         favourite_id: favourite_id
         current_person_id: current_person_id
+      success: (data) => 
+        $('.add_to_favourites select#favourite_id :selected').remove()
         
-  $('select#first_letter').change ->
-  first_letter = $(this).val()
-  $('.persons tbody').empty()
-  $.ajax
-    dataType: 'json',
-    type: 'GET',
-    url: "<%= Rails.application.routes.url_helpers.persons_path %>" 
-    data:
-      first_letter: first_letter
-    success: (data) =>
-      for person in data
-        do (person) =>
-          $.template("rowWithName", markup)
-          $.tmpl("rowWithName", person).appendTo('.persons tbody')
+  #$('select#first_letter').change ->
+  #first_letter = $(this).val()
+  #$('.persons tbody').empty()
+  #$.ajax
+  #  dataType: 'json',
+  #  type: 'GET',
+  #  url: "<%= Rails.application.routes.url_helpers.persons_path %>" 
+  #  data:
+  #    first_letter: first_letter
+  #  success: (data) =>
+  #    for person in data
+  #      do (person) =>
+  #        $.template("rowWithName", markup)
+  #        $.tmpl("rowWithName", person).appendTo('.persons tbody')

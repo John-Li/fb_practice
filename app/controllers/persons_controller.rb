@@ -23,7 +23,7 @@ class PersonsController < ApplicationController
     @next_person = next_person(people, @person)
     @person_favourites = @person.favourites.paginate(:page => params[:page], :per_page => 15)
     @person_in_favourites = @person.in_favourites.paginate(:page => params[:page], :per_page => 15)
-    @people_without_self = people
+    @people_without_self_and_favourites = people.delete_if {|person| @person_favourites.include? person}
     @pagination_collection = @person_in_favourites.size > @person_favourites.size ? @person_in_favourites : @person_favourites
     
     respond_with @person

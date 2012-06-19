@@ -13,7 +13,12 @@ class Person < ActiveRecord::Base
   has_many :in_favourites, through: :reverse_favourites_relations, source: :favourite
   
   def add_to_favourites!(other_person)
-    favourites_relations.create(favourites_id: other_person.id)
+    begin
+      new_relation = favourites_relations.new(favourites_id: other_person.id)
+      new_relation.save
+    rescue ActiveRecord::RecordNotUnique
+      errors.add(:favourite,"#{other_person.name} already in your favourites")
+    end
   end
   
   # def delete_from_favourites!(other_person)

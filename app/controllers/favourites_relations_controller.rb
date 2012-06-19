@@ -4,11 +4,8 @@ respond_to :json, :html
   def create
     @current_person = Person.find(params[:current_person_id])
     favourite = Person.find(params[:favourite_id])
-    if @current_person.add_to_favourites!(favourite)
-      flash[:notice] = "Successfully added #{favourite.name} to favourites"
-    else
-      flash[:error] = @current_person.errors.full_messages
-    end
+    @current_person.add_to_favourites!(favourite)
+    @current_person.errors.empty? ? (flash[:notice] = "Successfully added #{favourite.name} to favourites") : (flash[:error] = @current_person.errors.full_messages)
     
     respond_with favourite
   end

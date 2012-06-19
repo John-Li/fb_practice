@@ -5,20 +5,20 @@
 .clr
 .listings
   .favourites
-    %h2 Favourites
+    %h2 Favourites:
     - @person_favourites.each do |favourite|
       .favourite
         = link_to "#{favourite.name}", favourite, class: 'follow'  
-        = link_to "&#8855".html_safe, '#', title: "delete from favourites", current_person_id: "#{@person.id}", favourite_id: "#{favourite.id}", type: 'favourite', class: 'delete'
+        = link_to "&#8855".html_safe, '#', title: "delete from favourites", current_person_id: "#{@person.id}", favourite_id: "#{favourite.id}", type: 'favourite', id: 'delete_favourite'
   .in_favourites
-    %h2 In Favourites
+    %h2 In Favourites of:
     - @person_in_favourites.each do |in_favourite|
       .in_favourite
         = link_to "#{in_favourite.name}", in_favourite, class: 'follow'
-        = link_to "&#8855".html_safe, '#', title: "delete yourself from favourites", current_person_id: "#{@person.id}", favourite_id: "#{in_favourite.id}",  type: 'in_favourite', class: 'delete'
+        = link_to "&#8855".html_safe, '#', title: "delete yourself from favourites", current_person_id: "#{@person.id}", favourite_id: "#{in_favourite.id}",  type: 'in_favourite', id: 'delete_in_favourite'
   .add_to_favourites
     %h2 Select to add to your favourites
-    = select_tag 'favourite_id', options_from_collection_for_select(@people_without_self, 'id', 'name')
+    = select_tag 'favourite_id', options_from_collection_for_select(@people_without_self_and_favourites, 'id', 'name'), include_blank: true
     = hidden_field_tag 'current_person_id', "#{@person.id}"
 .clr
 = will_paginate @pagination_collection, class: 'apple_pagination'
