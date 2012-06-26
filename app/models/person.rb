@@ -1,6 +1,15 @@
 class Person < ActiveRecord::Base
   attr_accessible :name
   
+  scope :for_navigation, lambda {|id, sign = '='| 
+                                  if sign == '<' 
+                                    where('id < ?', id).order('id desc').limit(1) 
+                                  elsif sign == '>' 
+                                    where('id > ?', id).limit(1) 
+                                  else 
+                                    where('id = ?', id).limit(1)
+                                  end}
+                                  
   scope :by_order, lambda {|field, order| order("#{field} #{order}") if %w{name id}.include? field and %w{asc desc}.include? order}
     
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
@@ -12,24 +21,7 @@ class Person < ActiveRecord::Base
                                           dependent:   :destroy
   has_many :in_favourites, through: :reverse_favourites_relations, source: :favourite
   
-  def add_to_favourites!(other_person)
-    begin
-      new_relation = favourites_relations.new(favourites_id: other_person.id)
-      new_relation.save
-    rescue ActiveRecord::RecordNotUnique
-      errors.add(:favourite,"#{other_person.name} already in your favourites")
-    end
-  end
-  
-  # def delete_from_favourites!(other_person)
-  #   favourites_relations.find_by_favourites_id(other_person.id).destroy
-  # end
-  
-  # def delete_self_from_favourites_of!(favourite)
-  #   reverse_favourites_relations.where(favourite_id: favourite.id).destroy
-  # end
-  
-  def has_in_favourites?(other_user)
-    favourites.include?(other_user)
+  def add_to_favourites!(favourite_id)
+    favourites_relations.create(favourites_id: favourite_id)
   end
 end

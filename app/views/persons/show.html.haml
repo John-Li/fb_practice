@@ -1,19 +1,18 @@
 .name
-  .prev= link_to '&#8249'.html_safe, @previous_person
+  -#.prev= link_to '&#8249'.html_safe, '#', sign: '<'
   .current= @person.name
-  .next= link_to '&#8250'.html_safe, @next_person
-.clr
+  -#.next= link_to '&#8250'.html_safe, '#', sign: '>'
 .listings
-  .favourites
+  %ul.favourites
     %h2 Favourites:
     - @person_favourites.each do |favourite|
-      .favourite
+      %li
         = link_to "#{favourite.name}", favourite, class: 'follow'  
         = link_to "&#8855".html_safe, '#', title: "delete from favourites", current_person_id: "#{@person.id}", favourite_id: "#{favourite.id}", type: 'favourite', id: 'delete_favourite'
-  .in_favourites
+  %ul.in_favourites
     %h2 In Favourites of:
     - @person_in_favourites.each do |in_favourite|
-      .in_favourite
+      %li
         = link_to "#{in_favourite.name}", in_favourite, class: 'follow'
         = link_to "&#8855".html_safe, '#', title: "delete yourself from favourites", current_person_id: "#{@person.id}", favourite_id: "#{in_favourite.id}",  type: 'in_favourite', id: 'delete_in_favourite'
   .add_to_favourites

@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .persons{
-  
   table {
     text-align: center;
     margin: auto;
@@ -34,9 +33,7 @@
       }
     }  
   }
-  
 }
-
 
 .name{
   height: 60px;
@@ -64,30 +61,24 @@
     font-size: 30pt;
   }
 }
+
 .listings{
-  
-  .favourites{
-    width: 33%;
+  ul{
     float: left;
+    width: 30%;
+    margin: 0;
     
-    .favourite{
-      width: 50%;
+    h2{
+      margin-top: 0;
     }
-  }
-  .in_favourites{
-    width: 33%;
-    float: left;
     
-    .in_favourite{ 
-      width: 50%;
+    li{
+      width: 65%;
     }
-  }
-  .add_to_favourites{
-    width: 33%;
-    float: left;
   }
 }
 .favourites, .in_favourites{
+  list-style:none;
   display: inline;
   
   a.follow{

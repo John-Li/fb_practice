@@ -1,76 +1,49 @@
 require 'spec_helper'
 
 describe Person do
-  let(:person) { build(:person) }
+  let(:bob) { build(:person, name: 'Bob') }
+  let(:jan) { create(:person, name: 'Jan') } 
   
-  subject { person }
+  subject { bob }
 
   it { should respond_to(:name) }
   it { should respond_to(:favourites_relations) }
   it { should respond_to(:favourites) }
   it { should respond_to(:in_favourites) }
   it { should respond_to(:add_to_favourites!) }
-  it { should respond_to(:delete_from_favourites!) }
-  it { should respond_to(:has_in_favourites?) }
   
   describe "when name is not present" do
-    before { person.name = " " }
+    before { bob.name = " " }
     it { should_not be_valid }
   end
   
   describe "when name is too long" do
-    before { person.name = "a" * 51 }
+    before { bob.name = "a" * 51 }
     it { should_not be_valid }
   end
   
   describe "when the name is already taken" do
     before do 
-      person_with_the_same_name = person.dup 
+      person_with_the_same_name = bob.dup 
       person_with_the_same_name.save
     end
     it { should_not be_valid }
   end
   
-  describe "when addind to favourites other person" do
-    let(:other_person) { create(:person, name: 'YAN') }    
-    before do
-      person.save
-      person.add_to_favourites!(other_person)
-    end
-
-    it { should be_has_in_favourites(other_person) }
-    its(:favourites) { should include(other_person) }
-    
-    describe "when deleting from favourites other person" do
-      before { person.delete_from_favourites!(other_person) }
-      
-      it { should_not be_has_in_favourites(other_person) }
-      its(:favourites) { should_not include(other_person) }
+  describe "when adding to favourites other person" do
+    it "should have it in favourites" do
+      bob.save
+      bob.add_to_favourites!(jan.id)
+      bob.favourites.should include jan
     end
   end
-end
-
-describe Person do
-  let(:rob) { mock_person }
-
-  it "is valid by default" do
-    rob.should be_valid
-  end
-
-  subject { rob }
-
-  it { should respond_to(:name) }
   
-  describe "when name is too long" do
-    before { rob.name = "a" * 51 }
-    it { should_not be_valid }
-  end
-  
-  protected
-  
-  def mock_person
-    @mock_person ||= mock_model(Person, {
-      name: 'Example Name'  
-    })
+  describe "when deleting from favourites other person" do
+    it "should not have it in favourites" do
+      bob.save
+      bob.add_to_favourites!(jan.id)
+      bob.favourites.find_by_id(jan.id).destroy
+      bob.favourites.should_not include jan
+    end
   end
 end
