@@ -15,9 +15,9 @@ describe "Person" do
     bob.add_to_favourites!(rob)
   end
   
-  it "sees all of the people" do
-    pending
+  it "sees all of the people", js: true do
     visit persons_path
+    save_and_open_page
     page.should have_selector('td.name a', text: rob.name)
     page.should have_selector('td.name a', text: roy.name)
     page.should have_selector('td.name a', text: sam.name)
@@ -27,14 +27,12 @@ describe "Person" do
   end
   
   it "can take look at any person in the list" do
-    pending
     visit persons_path
     click_link('Rob')
     page.should have_selector('.name .current', text: 'Rob')
   end
   
   it "can visit its favourites page" do
-    pending
     visit person_path rob
     within('.favourites') do
       click_link('Roy')
@@ -43,7 +41,6 @@ describe "Person" do
   end
   
   it "can visit its in favourites page" do
-    pending
     visit person_path rob
     within('.in_favourites') do
       click_link('Max')
@@ -52,14 +49,12 @@ describe "Person" do
   end
   
   it "can add a new person to his favourites" do
-    pending
     visit person_path rob 
     page.select('Joe', from: "favourite_id")
     page.has_selector?(".flash .notice", text: 'Successfully added Joe to favourites')
   end
   
   it "can delete the person from his favourites" do
-    pending
     visit person_path rob 
     within('.favourites') do
       has_selector?('a.follow', text: 'Roy')

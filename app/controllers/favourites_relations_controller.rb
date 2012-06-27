@@ -7,7 +7,7 @@ respond_to :json, :html
     @current_person.add_to_favourites!(params[:favourite_id])
     @current_person.errors.empty? ? (flash[:notice] = "Successfully added to favourites") : (flash[:error] = @current_person.errors.full_messages)
     
-    respond_with @current_person
+    respond_with @current_person, json: true
   end
   
   def destroy
@@ -20,6 +20,6 @@ respond_to :json, :html
       flash[:notice] = "Successfully deleted self from favourites"
     end
     
-    respond_with @record
+    respond_with @record, json: true
   end
 end
