@@ -1,5 +1,5 @@
 class FavouritesRelation < ActiveRecord::Base
-  attr_accessible :favourite_id, :favourites_id
+  attr_accessible :favourites_id
   
   belongs_to :person
   belongs_to :favourites, class_name: "Person"
