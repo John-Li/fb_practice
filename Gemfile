@@ -37,6 +37,10 @@ group :test do
   gem 'factory_girl_rails'
 end
 
+#facebook-specific
+gem 'koala'
+gem 'omniauth-facebook'
+
 gem "carrierwave"
 gem "mini_magick"
 gem 'will_paginate'
