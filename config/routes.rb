@@ -3,6 +3,7 @@ Retailers::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/login')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'login', to: 'static_pages#login', as: 'login'
   resources :users, only: :show
   
   # The priority is based upon order of creation:
