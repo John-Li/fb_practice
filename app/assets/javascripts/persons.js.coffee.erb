@@ -65,17 +65,18 @@ $ ->
       success: (data) => 
         $('.add_to_favourites select#favourite_id :selected').remove()
          
-  #$('select#first_letter').change ->
-  #first_letter = $(this).val()
-  #$('.persons tbody').empty()
-  #$.ajax
-  #  dataType: 'json',
-  #  type: 'GET',
-  #  url: "<%= Rails.application.routes.url_helpers.persons_path %>" 
-  #  data:
-  #    first_letter: first_letter
-  #  success: (data) =>
-  #    for person in data
-  #      do (person) =>
-  #        $.template("rowWithName", markup)
-  #        $.tmpl("rowWithName", person).appendTo('.persons tbody')
+  $('select#first_letter').change ->
+    first_letter = $(this).val()
+    $('.persons tbody').empty()
+    $.ajax
+      dataType: 'json',
+      type: 'GET',
+      url: "<%= Rails.application.routes.url_helpers.persons_path %>" 
+      data:
+        first_letter: first_letter
+      success: (data) =>
+        for person in data
+          do (person) =>
+            $.template("rowWithName", markup)
+            $.tmpl("rowWithName", person).appendTo('.persons tbody')
+  
