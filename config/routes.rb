@@ -1,11 +1,13 @@
 Retailers::Application.routes.draw do
   
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/login')
+  match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  match 'login', to: 'static_pages#login', as: 'login'
-  resources :users, only: :show
-  
+  # match 'login', to: 'static_pages#login', as: 'login'
+  resources :users, only: :show do
+    resources :friends, only: :index
+  end
+  root to: 'static_pages#login'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -53,17 +55,17 @@ Retailers::Application.routes.draw do
   #     resources :products
   #   end
   
-  resources :promotion_cards
-  resources :promotions do
-    resources :images
-  end
+  # resources :promotion_cards
+  # resources :promotions do
+  #   resources :images
+  # end
   
-  resources :persons
-  resource  :favourites_relations, only: [:create, :destroy]   
+  # resources :persons
+  # resource  :favourites_relations, only: [:create, :destroy]   
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  # root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

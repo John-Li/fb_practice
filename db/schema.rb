@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628141211) do
+ActiveRecord::Schema.define(:version => 20120704125035) do
 
   create_table "favourites_relations", :force => true do |t|
     t.integer  "favourite_id"
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(:version => 20120628141211) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "picture"
+    t.string   "gender"
+    t.string   "link"
   end
 
 end

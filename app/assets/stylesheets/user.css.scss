@@ -1,0 +1,59 @@
+.signout{
+  position: absolute;
+  right: 0;
+  top: 0;
+  a{
+    color: #5f98cf;
+    font-size: 10pt;
+    
+    &:hover{
+      color: red;
+      text-decoration: none;
+    }
+  }
+}
+.user{
+  display: inline-block;
+  margin: 35px 0 0 35%;
+  width: 50%;
+  
+  .picture{
+    float: left;
+    padding: 5px 5px 5px 0;
+  }
+  .user_name{
+    font-size: 25pt;
+    font-weight: bold;
+    padding: 4px 0 0 10px;
+  }
+  .gender{
+    font-size: 10pt;
+    color: #bbb;
+  }
+}
+a{
+  text-decoration: none;
+  color: black;
+  
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+li{
+  display: inline;
+   
+  .picture{
+    float: left;
+    padding: 5px 5px 5px 0;
+  }
+  .friend_name{
+    font-size: 20pt;
+    font-weight:bold;
+    padding: 5px 0 0 10px;
+  }
+  .gender{
+    font-size: 10pt;
+    color: #bbb;
+  }
+}

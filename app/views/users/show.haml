@@ -1,9 +1,14 @@
-%h1= @user.name
-%h4= link_to "Sign out", signout_path, id: "sign_out"
-
-%h3 My Friends:
-%ul.friends
--@friends.each do |friend|
-  %li= friend['name']
-  
-= will_paginate @friends, class: 'apple_pagination'
+.user
+  .picture= image_tag(@user.picture)
+  .user_name= link_to "#{@user.name}", @user.link
+  .gender= @user.gender
+.signout= link_to "&#8855".html_safe + " SIGN OUT", signout_path, id: "sign_out"
+.clr
+%h2 Friends:
+%ul.friends 
+-@friends.each_value do |friend|
+  %li
+    .picture= image_tag(friend['picture'])
+    .friend_name= link_to "#{friend['name']}", friend['link']
+    .gender= friend['gender']
+    .clr
