@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120704125035) do
+ActiveRecord::Schema.define(:version => 20120706071005) do
 
   create_table "favourites_relations", :force => true do |t|
     t.integer  "favourite_id"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20120704125035) do
   add_index "favourites_relations", ["favourite_id", "favourites_id"], :name => "index_favourites_relations_on_favourite_id_and_favourites_id", :unique => true
   add_index "favourites_relations", ["favourite_id"], :name => "index_favourites_relations_on_favourite_id"
   add_index "favourites_relations", ["favourites_id"], :name => "index_favourites_relations_on_favourites_id"
+
+  create_table "friends_relations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "friends_relations", ["friend_id"], :name => "index_friends_relations_on_friend_id"
+  add_index "friends_relations", ["user_id", "friend_id"], :name => "index_friends_relations_on_user_id_and_friend_id", :unique => true
+  add_index "friends_relations", ["user_id"], :name => "index_friends_relations_on_user_id"
 
   create_table "images", :force => true do |t|
     t.string   "file_name"

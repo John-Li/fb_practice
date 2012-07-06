@@ -6,9 +6,9 @@
 .clr
 %h2 Friends:
 %ul.friends 
--@friends.each_value do |friend|
+-@friends.each do |friend|
   %li
-    .picture= image_tag(friend['picture'])
-    .friend_name= link_to "#{friend['name']}", friend['link']
-    .gender= friend['gender']
+    .picture= image_tag(friend.picture)
+    .friend_name= link_to "#{friend.name}", friend.link
+    .gender= friend.gender
     .clr
