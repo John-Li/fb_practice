@@ -3,6 +3,7 @@ Retailers::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'search', to: 'search#search', as: 'search'
   # match 'login', to: 'static_pages#login', as: 'login'
   resources :users, only: :show do
     resources :friends, only: :index

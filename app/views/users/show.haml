@@ -5,10 +5,13 @@
 .signout= link_to "&#8855".html_safe + " SIGN OUT", signout_path, id: "sign_out"
 .clr
 %h2 Friends:
+.search
+  = text_field_tag 'query', nil, placeholder: "Search for a friend"
+  = hidden_field_tag 'user_id', "#{@user.id}"
 %ul.friends 
--@friends.each do |friend|
-  %li
-    .picture= image_tag(friend.picture)
-    .friend_name= link_to "#{friend.name}", friend.link
-    .gender= friend.gender
-    .clr
+  -@friends.each do |friend|
+    %li
+      .picture= image_tag(friend.picture)
+      .friend_name= link_to "#{friend.name}", friend.link
+      .gender= friend.gender
+      .clr

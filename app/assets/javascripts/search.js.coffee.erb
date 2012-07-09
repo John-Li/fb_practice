@@ -1,0 +1,21 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+$ ->
+  markup = "<li><div class='picture'><img alt='img' src='${picture}'></div><div class='friend_name'><a href='${link}'>${name}</a></div><div class='gender'>${gender}</div><div class='clr'></div></li>"
+
+  $("input[type='text']#query").keyup ->
+    query = $(this).val()
+    user_id = $('input#user_id').val()
+    $.template("friendTemplate", markup)
+    $.ajax
+      dataType: 'json',
+      type: 'GET',
+      url: "<%= Rails.application.routes.url_helpers.search_path %>" 
+      data:
+        query: query
+        user_id: user_id
+      success: (data) =>
+        $('ul.friends').empty()
+        $.tmpl("friendTemplate", data).appendTo('ul.friends')
