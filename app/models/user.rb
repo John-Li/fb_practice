@@ -7,20 +7,19 @@ class User < ActiveRecord::Base
                                        class_name:  "FriendsRelation",
                                        dependent:   :destroy
   has_many :in_friends, through: :reverse_friends_relations, source: :user
-
   
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.gender = auth.extra.raw_info.gender
-      user.link = auth.extra.raw_info.link
-      user.picture = auth.info.image
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
-    end
+    init_hash = { provider: auth.provider,
+                  uid: auth.uid,
+                  name: auth.info.name,
+                  gender: auth.extra.raw_info.gender,
+                  link: auth.extra.raw_info.link,
+                  picture: auth.info.image,
+                  oauth_token: auth.credentials.token,
+                  oauth_expires_at: Time.at(auth.credentials.expires_at) }
+    user = find_or_initialize_by_uid(auth.uid, init_hash)
+    user.save! if user.new_record?
+    user
   end
   
   def add_to_friends(user_id)
@@ -47,19 +46,20 @@ class User < ActiveRecord::Base
   end
 
   def initialize_friends
-    friends_info_hash = friends_info
-    friends_info_hash.each do |friend_uid, friend_info|
+    friends_info.each do | friend_uid, friend_info |
       friend_info_hash = { uid: friend_info['id'],
                            name: friend_info['name'],
                            picture: friend_info['picture'],
                            gender: friend_info['gender'],
                            link: friend_info['link'] }
-      if User.where(uid: friend_uid).exists?
-        User.find_by_uid(friend_uid).update_attributes(friend_info_hash)
+      friend = User.find_or_initialize_by_uid(friend_uid, friend_info_hash)
+      if friend.new_record?
+        friend.save
+        add_to_friends(friend.id)
       else
-        User.create(friend_info_hash)
-        add_to_friends(User.find_by_uid(friend_info['id']).id)
+        friend.update_attributes(friend_info_hash)
       end
     end
   end
+  
 end
