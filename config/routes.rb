@@ -56,13 +56,13 @@ Retailers::Application.routes.draw do
   #     resources :products
   #   end
   
-  # resources :promotion_cards
-  # resources :promotions do
-  #   resources :images
-  # end
+  resources :promotion_cards
+  resources :promotions do
+    resources :images
+  end
   
-  # resources :persons
-  # resource  :favourites_relations, only: [:create, :destroy]   
+  resources :persons
+  resource  :favourites_relations, only: [:create, :destroy]   
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
