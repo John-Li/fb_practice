@@ -1,15 +1,8 @@
 class Person < ActiveRecord::Base
   attr_accessible :name
   
-  scope :for_navigation, lambda {|id, sign = '='| 
-                                  if sign == '<' 
-                                    where('id < ?', id).order('id desc').limit(1) 
-                                  elsif sign == '>' 
-                                    where('id > ?', id).limit(1) 
-                                  else 
-                                    where('id = ?', id).limit(1)
-                                  end}
-                                  
+  scope :for_navigation, lambda {|id, sign = '='| where("id #{sign} ?", id).order("id #{sign == '<' ? 'desc' : 'asc'}").limit(1)}
+  scope :by_first_letter, lambda {|first_letter| where("name like ?", "#{first_letter}%")}                                
   scope :by_order, lambda {|field, order| order("#{field} #{order}") if %w{name id}.include? field and %w{asc desc}.include? order}
     
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
